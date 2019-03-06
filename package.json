@@ -39,6 +39,7 @@
         "scripts"
     ],
     "scripts": {
+        "prepare": "npm run build",
         "create-emoji-data": "./scripts/create-emoji-data.js > src/data/emoji-data.js",
         "create-sprites": "./scripts/generate-sprites.sh",
         "create-shortnames": "./scripts/create-emoji-shortnames.js",
