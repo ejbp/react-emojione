@@ -1,9 +1,11 @@
 import getEmojiRenderer from './emoji-renderer';
+import getEmojiImageRenderer from './emoji-image-renderer';
 import getUnicodeRenderer from './unicode-renderer';
 
 const rendererForOutputFormat = {
     emoji: getEmojiRenderer,
-    unicode: getUnicodeRenderer
+    unicode: getUnicodeRenderer,
+    'emoji-image': getEmojiImageRenderer
 };
 
 const getRenderer = (config) => {

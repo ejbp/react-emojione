@@ -10,16 +10,18 @@ import ASCII_DATA from './data/ascii-to-unicode';
 import getRenderer from './renderers/renderer-factory';
 import {unicodes, shortToCodepoint, unicodeToCodepoint} from './utils/emoji-format-conversion';
 
-const DEFAULT_OPTIONS = {
+const defaultOptionsFor = (output = 'emoji') => ({
     convertShortnames: true,
     convertUnicode: true,
     convertAscii: true,
-    style: {
-        backgroundImage: 'url(https://github.com/pladaria/react-emojione/blob/emojione3/assets/sprites/emojione-3.1.2-64x64.png?raw=true)'
-    },
+    style: output === 'emoji'
+        ? {
+            backgroundImage: 'url(https://github.com/pladaria/react-emojione/blob/emojione3/assets/sprites/emojione-3.1.2-64x64.png?raw=true)'
+        }
+        : undefined,
     onClick: undefined,
-    output: 'emoji' // valid options: 'emoji', 'unicode'
-};
+    output: output // valid options: 'emoji', 'unicode', 'emoji-image'
+});
 
 const asciiToUnicodeCache = new Map();
 const asciiRegExpToUnicode = new Map();
@@ -87,7 +89,7 @@ const shouldConvertAscii = (parts, index) => {
 
 export const emojify = (str, options = {}) => {
 
-    const mergedOptions = Object.assign({}, DEFAULT_OPTIONS, options);
+    const mergedOptions = Object.assign({}, defaultOptionsFor(options.output), options);
 
     const {convertShortnames, convertUnicode, convertAscii} = mergedOptions;
 

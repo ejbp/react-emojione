@@ -7,6 +7,14 @@
     <p align="center">A tiny library to use emojis in React</p>
 </p>
 
+## Changes in this clone
+
+- Convert output to component image {output: 'emoji-image'}
+
+## Why these changes?
+
+When you have too many emojios in a single page, short memory devices don't have enouph memory to render with current options.output='emoji'.
+
 ## Features
 
 - Updated to emojione v3.1.2
@@ -80,6 +88,32 @@ const options = {
     style: {
         backgroundImage: 'url("/path/to/your/emojione.sprites.png")',
         height: 32,
+        margin: 4,
+    },
+    // this click handler will be set on every emoji
+    onClick: event => alert(event.target.title)
+};
+
+ReactDOM.render(
+    <div>
+        {emojify('Easy! :wink: 😸 :D ^__^', options)}
+    </div>,
+    document.body
+);
+```
+
+## Advanced usage output='emoji-image' (function)
+
+```javascript
+import {emojify} from 'react-emojione';
+
+const options = {
+    convertShortnames: true,
+    convertUnicode: true,
+    convertAscii: true,
+    assetPath: '/assets/emojios', //you may copy THIS_PROJECT_ROOT/assets dir and make it available on public path https://host/assets/emojios
+    style: {
+        maxHeight: 54,
         margin: 4,
     },
     // this click handler will be set on every emoji

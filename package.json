@@ -44,6 +44,7 @@
         "start": "webpack-dev-server --inline --content-base demo/ --config ./webpack.config.js",
         "clean": "rimraf lib",
         "build": "yarn lint && babel src --out-dir lib",
+        "build-no-lint": "babel src --out-dir lib",
         "prepublishOnly": "yarn run clean && yarn run build && yarn test",
         "test": "node test/test.js",
         "lint": "eslint src"
