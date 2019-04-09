@@ -10,6 +10,8 @@
 ## Changes in this clone
 
 - Convert output to component image {output: 'emoji-image'}
+- Convert output to image src {output: 'emoji-src'}
+
 
 ## Why these changes?
 

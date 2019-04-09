@@ -20,7 +20,7 @@ const defaultOptionsFor = (output = 'emoji') => ({
         }
         : undefined,
     onClick: undefined,
-    output: output // valid options: 'emoji', 'unicode', 'emoji-image'
+    output: output // valid options: 'emoji', 'unicode', 'emoji-image', 'emoji-src'
 });
 
 const asciiToUnicodeCache = new Map();
